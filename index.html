@@ -1,0 +1,846 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lokendra kumar | Portfolio</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #2563eb;
+            --secondary: #3b82f6;
+            --dark: hsl(217, 46%, 22%);
+            --light: #f8fafc;
+            --accent: #f97316;
+            --gray: #64748b;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            line-height: 1.6;
+            color: var(--dark);
+            background-color: var(--light);
+            overflow-x: hidden;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header & Navigation */
+        header {
+            background-color: rgba(11, 143, 61, 0.95);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 0;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: 700;
+            color: var(--primary);
+        }
+
+        .logo span {
+            color: var(--accent);
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+        }
+
+        .nav-links li {
+            margin-left: 30px;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--dark);
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary);
+        }
+
+        .hamburger {
+            display: none;
+            cursor: pointer;
+        }
+
+        /* Hero Section */
+        .hero {
+            padding: 150px 0 100px;
+            background: linear-gradient(135deg, #f6f9ff 0%, #e9f2ff 100%);
+            text-align: center;
+        }
+
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+            color: var(--dark);
+        }
+
+        .hero h1 span {
+            color: var(--primary);
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            color: var(--gray);
+            margin-bottom: 30px;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 12px 30px;
+            background-color: var(--primary);
+            color: white;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s;
+            border: none;
+            cursor: pointer;
+        }
+
+        .btn:hover {
+            background-color: var(--secondary);
+            transform: translateY(-2px);
+        }
+
+        /* Sections */
+        section {
+            padding: 80px 0;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .section-title h2 {
+            font-size: 2.5rem;
+            color: var(--dark);
+            margin-bottom: 15px;
+        }
+
+        .section-title p {
+            color: var(--gray);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* About Section */
+        .about-content {
+            display: flex;
+            align-items: center;
+            gap: 50px;
+        }
+
+        .about-img {
+            flex: 1;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .about-img img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        .about-text {
+            flex: 1;
+        }
+
+        .about-text h3 {
+            font-size: 2rem;
+            margin-bottom: 20px;
+            color: var(--dark);
+        }
+
+        .about-text p {
+            margin-bottom: 15px;
+            color: var(--gray);
+        }
+
+        /* Skills Section */
+        .skills-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 30px;
+        }
+
+        .skill {
+            background-color: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s;
+        }
+
+        .skill:hover {
+            transform: translateY(-5px);
+        }
+
+        .skill i {
+            font-size: 2.5rem;
+            color: var(--primary);
+            margin-bottom: 20px;
+        }
+
+        .skill h3 {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+        }
+
+        /* Projects Section */
+        .projects-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .project {
+            background-color: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s;
+        }
+
+        .project:hover {
+            transform: translateY(-5px);
+        }
+
+        .project-img {
+            height: 200px;
+            overflow: hidden;
+        }
+
+        .project-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s;
+        }
+
+        .project:hover .project-img img {
+            transform: scale(1.1);
+        }
+
+        .project-info {
+            padding: 20px;
+        }
+
+        .project-info h3 {
+            font-size: 1.5rem;
+            margin-bottom: 10px;
+        }
+
+        .project-info p {
+            color: var(--gray);
+            margin-bottom: 15px;
+        }
+
+        /* YouTube Section */
+        .youtube-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .channel-stats {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin-bottom: 40px;
+        }
+
+        .stat {
+            text-align: center;
+            padding: 20px;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            min-width: 150px;
+        }
+
+        .stat i {
+            font-size: 2rem;
+            color: var(--primary);
+            margin-bottom: 10px;
+        }
+
+        .stat h3 {
+            font-size: 1.8rem;
+            margin-bottom: 5px;
+        }
+
+        .videos-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 30px;
+            width: 100%;
+        }
+
+        .video-card {
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        }
+
+        .video-thumbnail {
+            height: 180px;
+            overflow: hidden;
+        }
+
+        .video-thumbnail img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .video-info {
+            padding: 20px;
+        }
+
+        .video-info h3 {
+            font-size: 1.2rem;
+            margin-bottom: 10px;
+        }
+
+        /* Contact Section */
+        .contact-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 50px;
+        }
+
+        .contact-info {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .contact-item i {
+            font-size: 1.5rem;
+            color: var(--primary);
+        }
+
+        .contact-form {
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: 500;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 12px 15px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .form-group textarea {
+            min-height: 120px;
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--dark);
+            color: white;
+            padding: 50px 0 20px;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-column h3 {
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+        }
+
+        .footer-column p {
+            margin-bottom: 15px;
+            color: #cbd5e1;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 15px;
+        }
+
+        .social-links a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            color: white;
+            text-decoration: none;
+            transition: all 0.3s;
+        }
+
+        .social-links a:hover {
+            background-color: var(--primary);
+            transform: translateY(-3px);
+        }
+
+        .copyright {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: #cbd5e1;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 992px) {
+            .about-content {
+                flex-direction: column;
+            }
+            
+            .hero h1 {
+                font-size: 2.8rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+            
+            .hamburger {
+                display: block;
+            }
+            
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+            
+            .channel-stats {
+                flex-wrap: wrap;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .hero h1 {
+                font-size: 2rem;
+            }
+            
+            .section-title h2 {
+                font-size: 2rem;
+            }
+            
+            .contact-container {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <nav>
+                <div class="logo">Lokendra<span> kumar</span></div>
+                <ul class="nav-links">
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#skills">Skills</a></li>
+                    <li><a href="#projects">Projects</a></li>
+                    <li><a href=" http://www.youtube.com/@uaacademy9629">YouTube</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+                <div class="hamburger">
+                    <i class="fas fa-bars"></i>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="container">
+            <div class="hero-content">
+                <h1>Hi, I'm <span>Lokendra kumar</span></h1>
+                <p>A passionate developer and content creator who loves to build amazing web experiences and share knowledge with others.</p>
+                <a href="#projects" class="btn">View My Work</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about">
+        <div class="container">
+            <div class="section-title">
+                <h2>About Me</h2>
+                <p>Get to know more about my background, skills and passion</p>
+            </div>
+            <div class="about-content">
+                <div class="about-img">
+                    <img src=" lokendra  kumar.jpg " alt="Lokendra kumar">
+                </div>
+                <div class="about-text">
+                    <h3>Who Am I?</h3>
+                    <p>Hello! I'm Lokendra kumar, a full-stack developer based in India. I have a passion for creating interactive, responsive, and user-friendly web applications.</p>
+                    <p>With expertise in both front-end and back-end technologies, I enjoy turning complex problems into simple, beautiful designs.</p>
+                    <p>When I'm not coding, you can find me creating content for my YouTube channel, where I share my knowledge and experiences with the developer community.</p>
+                    <a href="#contact" class="btn">Get In Touch</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" style="background-color: #f6f9ff;">
+        <div class="container">
+            <div class="section-title">
+                <h2>My Skills</h2>
+                <p>Here are the technologies and tools I work with</p>
+            </div>
+            <div class="skills-container">
+                <div class="skill">
+                    <i class="fab fa-html5"></i>
+                    <h3>HTML5</h3>
+                    <p>Semantic markup, accessibility, and modern HTML5 features.</p>
+                </div>
+                <div class="skill">
+                    <i class="fab fa-css3-alt"></i>
+                    <h3>CSS3</h3>
+                    <p>Responsive design, Flexbox, Grid, animations, and preprocessors.</p>
+                </div>
+                <div class="skill">
+                    <i class="fab fa-js"></i>
+                    <h3>JavaScript</h3>
+                    <p>ES6+, DOM manipulation, async programming, and frameworks.</p>
+                </div>
+                <div class="skill">
+                    <i class="fab fa-node-js"></i>
+                    <h3>Node.js</h3>
+                    <p>Server-side programming, RESTful APIs, and backend development.</p>
+                </div>
+                <div class="skill">
+                    <i class="fas fa-database"></i>
+                    <h3>MongoDB</h3>
+                    <p>Database design, aggregation, and integration with applications.</p>
+                </div>
+                <div class="skill">
+                    <i class="fab fa-react"></i>
+                    <h3>React</h3>
+                    <p>Component-based architecture, hooks, and state management.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects">
+        <div class="container">
+            <div class="section-title">
+                <h2>My Projects</h2>
+                <p>Here are some of the projects I've worked on</p>
+            </div>
+            <div class="projects-container">
+                <div class="project">
+                    <div class="project-img">
+                        <img src=" hqdefault.jpg" alt="Engineering mathmatics">
+                    </div>
+                    <div class="project-info">
+                        <h3> Engineering mathmetices</h3>
+                        <p> solution with payment integration.</p>
+                        <a href="https://www.youtube.com/watch?v=cSY9Jhzs3cA&list=PL4JSCBCdzj6pBljyinNYtluNjSerZANNF&index=1&pp=gAQBiAQB" class="btn">View Project</a>
+                    </div>
+                </div>
+                <div class="project">
+                    <div class="project-img">
+                        <img src=" hqdefault (1).jpg" alt="Social Media App">
+                    </div>
+                    <div class="project-info">
+                        <h3>chemistry</h3>
+                        <p> chemistry with  lokendra kumar</p>
+                        <a href="https://youtube.com/playlist?list=PL4JSCBCdzj6ql2TriJIycFDPJHKH6Q2z3&si=s6n-H2ku0WfkVEFA" class="btn">View Project</a>
+                    </div>
+                </div>
+                <div class="project">
+                    <div class="project-img">
+                        <img src="hqdefault (2).jpg " alt="Task Manager">
+                    </div>
+                    <div class="project-info">
+                        <h3> Astronomy by chotu</h3>
+                        <p> Astronomy with lokendra kumar</p>
+                        <a href="https://youtube.com/playlist?list=PL4JSCBCdzj6og9Up0joiW4lMaGbFJSjEx&si=LKarMi-h40e7Q1Ae" class="btn">View Project</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- YouTube Section -->
+    <section id="youtube" style="background-color: #f6f9ff;">
+        <div class="container">
+            <div class="section-title">
+                <h2>My YouTube Channel</h2>
+                <p>Check out my latest videos and tutorials</p>
+            </div>
+            <div class="youtube-container">
+                <div class="channel-stats">
+                    <div class="stat">
+                        <i class="fab fa-youtube"></i>
+                        <h3>5.2K</h3>
+                        <p>Subscribers</p>
+                    </div>
+                    <div class="stat">
+                        <i class="fas fa-video"></i>
+                        <h3>184</h3>
+                        <p>Videos</p>
+                    </div>
+                    <div class="stat">
+                        <i class="fas fa-eye"></i>
+                        <h3> 49,331</h3>
+                        <p>Views</p>
+                    </div>
+                </div>
+                <div class="videos-container">
+                    <div class="video-card">
+                        <div class="video-thumbnail">
+                            <img src="channels4_profile.jpg  " alt="YouTube Video">
+                        </div>
+                        <div class="video-info">
+                            <h3>MongoDB Crash Course</h3>
+                            <p>Learn MongoDB in 1 hour</p>
+                        </div>
+                    </div>
+                    <div class="video-card">
+                        <div class="video-thumbnail">
+                            <img src="https://i.ytimg.com/vi/h33Srr5J9nY/maxresdefault.jpg" alt="YouTube Video">
+                        </div>
+                        <div class="video-info">
+                            <h3>React Hooks Explained</h3>
+                            <p>Master React Hooks in 2023</p>
+                        </div>
+                    </div>
+                    <div class="video-card">
+                        <div class="video-thumbnail">
+                            <img src="download.png " alt="YouTube Video">
+                        </div>
+                        <div class="video-info">
+                            <h3>Node.js Authentication</h3>
+                            <p>JWT Authentication Guide</p>
+                        </div>
+                    </div>
+                </div>
+                <a href=" https://youtube.com/@uaacademy9629?si=1jmdKGEnahIQqf_c" class="btn" style="margin-top: 40px;">Visit My Channel</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact">
+        <div class="container">
+            <div class="section-title">
+                <h2>Get In Touch</h2>
+                <p>Feel free to contact me for any work or suggestions</p>
+            </div>
+            <div class="contact-container">
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <i class="fas fa-envelope"></i>
+                        <div>
+                            <h3>Email</h3>
+                            <p>lokendrafranklin@gmail.com</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-phone"></i>
+                        <div>
+                            <h3>Phone</h3>
+                            <p>+91 9568804305 </p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <div>
+                            <h3>Location</h3>
+                            <p> lucknow -, India</p>
+                        </div>
+                    </div>
+                    <div class="social-links">
+                        <a href="https://github.com/"><i class="fab fa-github"></i></a>
+                        <a href="https://www.linkedin.com/in/lokendrakumar13/"><i class="fab fa-linkedin"></i></a>
+                        <a href="https://x.com/i/flow/login?lang=en"><i class="fab fa-twitter"></i></a>
+                        <a href="http://www.youtube.com/@uaacademy9629"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                <div class="contact-form">
+                    <form id="contactForm">
+                        <div class="form-group">
+                            <label for="name">Your Name</label>
+                            <input type="text" id="name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Your Email</label>
+                            <input type="email" id="email" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="subject">Subject</label>
+                            <input type="text" id="subject" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="message">Your Message</label>
+                            <textarea id="message" required></textarea>
+                        </div>
+                        <button type="submit" class="btn">Send Message</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3>Lokendra kumar</h3>
+                    <p>A full-stack developer and content creator passionate about building amazing web experiences.</p>
+                </div>
+                <div class="footer-column">
+                    <h3>Quick Links</h3>
+                    <p><a href="#home" style="color: #cbd5e1; text-decoration: none;">Home</a></p>
+                    <p><a href="#about" style="color: #cbd5e1; text-decoration: none;">About</a></p>
+                    <p><a href="#projects" style="color: #cbd5e1; text-decoration: none;">Projects</a></p>
+                    <p><a href="#contact" style="color: #cbd5e1; text-decoration: none;">Contact</a></p>
+                </div>
+                <div class="footer-column">
+                    <h3>Connect With Me</h3>
+                    <div class="social-links">
+                        <a href="https://github.com/"><i class="fab fa-github"></i></a>
+                        <a href="https://www.linkedin.com/in/lokendrakumar13/"><i class="fab fa-linkedin"></i></a>
+                        <a href="https://x.com/i/flow/login?lang=en"><i class="fab fa-twitter"></i></a>
+                        <a href="http://www.youtube.com/@uaacademy9629"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2023 Lokendra kumar. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Simple form validation
+        document.getElementById('contactForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+            const subject = document.getElementById('subject').value;
+            const message = document.getElementById('message').value;
+            
+            if (name && email && subject && message) {
+                alert('Thanks for your message! I will get back to you soon.');
+                this.reset();
+            }
+        });
+
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+
+        // Mobile menu toggle
+        const hamburger = document.querySelector('.hamburger');
+        const navLinks = document.querySelector('.nav-links');
+        
+        hamburger.addEventListener('click', () => {
+            navLinks.style.display = navLinks.style.display === 'flex' ? 'none' : 'flex';
+        });
+
+        // MongoDB connection simulation (for demonstration only)
+        // In a real application, this would be done on the server side
+        const connectToMongoDB = () => {
+            console.log('Attempting to connect to MongoDB...');
+            
+            // This is a simulation - in a real app, you would use the MongoDB driver
+            const connectionString = 'mongodb+srv://lokendrafranklin_db_user:<lokendrakumar>@cluster0.o0ce6mt.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0';
+            
+            // Simulate connection
+            setTimeout(() => {
+                console.log('Connected to MongoDB successfully!');
+                // Here you would typically set up database operations
+            }, 1000);
+        };
+
+        // Initialize when the page loads
+        window.addEventListener('DOMContentLoaded', () => {
+            connectToMongoDB();
+        });
+    </script>
+</body>
+</html>
